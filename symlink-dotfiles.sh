@@ -10,13 +10,16 @@ TPM_URL="https://github.com/tmux-plugins/tpm"
 TPM_DEST="$HOME/.tmux/plugins/tpm"
 
 
+# Format: "source_path target_path"
+# For tmux we must specify the full path to avoid symlinking the entire tmux directory which contains plugins that shouldn't be in the repo
+# For sway, we have an output file specific for each device, so we only link the config file and not the entire sway directory
 declare -a LINKS=(
     "alacritty              ~/.config/alacritty"
     "fuzzel                 ~/.config/fuzzel"
     "starship/starship.toml ~/.config/starship.toml"
-    "sway                   ~/.config/sway"
+    "sway/config            ~/.config/sway/config"
     "swaylock               ~/.config/swaylock"
-    "tmux                   ~/.config/tmux"
+    "tmux/tmux.conf         ~/.config/tmux/tmux.conf"
     "zsh/.zshrc             ~/.zshrc"
 )
 

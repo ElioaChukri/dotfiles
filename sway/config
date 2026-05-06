@@ -23,7 +23,7 @@ set $lock swaylock -C ~/.config/swaylock/config
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/hometek/Pictures/Black_Hole_Blue_Full.png fill
+output * bg ~/Pictures/backgrounds/Black_Hole_Blue_Full.png fill #1a1a2e
 #
 # Example configuration:
 #
@@ -244,7 +244,7 @@ bar {
 input "type:keyboard" xkb_options caps:escape
 
 # Autostart some applications 
-exec swaymsg nm-applet --indicator
+exec nm-applet --indicator
 
 # Focus does NOT follow mouse 
 focus_follows_mouse no
