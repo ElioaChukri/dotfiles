@@ -1,0 +1,43 @@
+screenshots
+clock
+indicator
+indicator-radius=100
+indicator-thickness=7 
+effect-blur=7x5 
+effect-vignette=0.5:0.5 
+font=Monaspace Krypton
+
+# Key press highlight colors
+key-hl-color=2dd4bfff
+bs-hl-color=2dd4bfff
+caps-lock-bs-hl-color=2dd4bfff
+caps-lock-key-hl-color=2dd4bfff
+
+# Text colors
+text-color=f5f5f5ff
+text-clear-color=f5f5f5ff
+text-caps-lock-color=f5f5f5ff
+text-ver-color=f5f5f5ff
+text-wrong-color=f5f5f5ff
+
+# Ring colors
+ring-color=737373ff
+ring-clear-color=2dd4bfff
+ring-caps-lock-color=737373ff
+ring-ver-color=737373ff
+ring-wrong-color=737373ff
+
+# Line colors
+line-color=171717ff 
+line-clear-color=171717ff 
+line-caps-lock-color=171717ff 
+line-ver-color=171717ff 
+line-wrong-color=171717ff 
+line-uses-inside
+
+# inside colors
+inside-color=171717ff
+inside-clear-color=171717ff
+inside-caps-lock-color=171717ff
+inside-ver-color=171717ff
+inside-wrong-color=171717ff

@@ -1,0 +1,8 @@
+[general]
+import = [ "themes/tokyo-night/tokyo-night.toml" ]
+
+[font]
+normal = { family = "Monaspace Krypton", style = "Regular"}
+
+[window]
+opacity = 0.9
