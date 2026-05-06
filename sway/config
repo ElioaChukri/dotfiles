@@ -261,3 +261,4 @@ title_align center
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 include /etc/sway/config.d/*
+include ~/.config/sway/config.d/*
