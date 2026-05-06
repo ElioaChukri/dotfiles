@@ -98,6 +98,12 @@ link_file() {
 
 install_tpm() {
     log "Installing Tmux Plugin Manager"
+
+    if [[ -d "$TPM_DEST" ]]; then
+        log "TPM already exists at $TPM_DEST, skipping clone"
+        return 0
+    fi
+
     if "$DRY_RUN"; then 
         dry "git clone $TPM_URL $TPM_DEST"
         return 0
