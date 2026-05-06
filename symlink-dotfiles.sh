@@ -20,6 +20,8 @@ declare -a LINKS=(
     "sway/config            ~/.config/sway/config"
     "swaylock               ~/.config/swaylock"
     "tmux/tmux.conf         ~/.config/tmux/tmux.conf"
+    "waybar/config          ~/.config/waybar/config"
+    "waybar/style.css       ~/.config/waybar/style.css"
     "zsh/.zshrc             ~/.zshrc"
 )
 
