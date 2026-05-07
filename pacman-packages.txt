@@ -8,14 +8,16 @@ eza
 fuzzel
 fzf
 git
-mako
+kooha
 neovim
 network-manager-applet
 otf-monaspace
 otf-monaspace-nerd
 sway
+sway-contrib
 swaybg
 swayidle
+swaync
 thunar
 tmux
 vim
