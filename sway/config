@@ -81,6 +81,9 @@ exec swayidle -w \
     # Kill focused window
     bindsym $mod+Shift+q kill
 
+    # With middle mouse click over title bar 
+    bindsym --border button2 kill
+
     # Start your launcher
     bindsym $mod+Space exec $menu
 
