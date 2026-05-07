@@ -19,9 +19,10 @@ declare -a LINKS=(
     "starship/starship.toml ~/.config/starship.toml"
     "sway/config            ~/.config/sway/config"
     "swaylock               ~/.config/swaylock"
+    "swaynag                ~/.config/swaynag"
+    "swaync                 ~/.config/swaync"
     "tmux/tmux.conf         ~/.config/tmux/tmux.conf"
-    "waybar/config          ~/.config/waybar/config"
-    "waybar/style.css       ~/.config/waybar/style.css"
+    "waybar                 ~/.config/waybar"
     "zsh/.zshrc             ~/.zshrc"
 )
 

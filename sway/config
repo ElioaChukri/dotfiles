@@ -18,7 +18,10 @@ set $term alacritty
 # Your preferred application launcher
 set $menu fuzzel
 # Set swaylock 
-set $lock swaylock -C ~/.config/swaylock/config
+set $lock playerctl pause || swaylock -C ~/.config/swaylock/config
+
+set $notifications swaync -c ~/.config/swaync/config -s ~/.config/swaync/style.css
+set $notifications-client swaync-client -t -sw
 
 ### Output configuration
 #
@@ -79,6 +82,9 @@ exec swayidle -w \
     # Start your launcher
     bindsym $mod+Space exec $menu
 
+    # Toggle control center 
+    bindsym $mod+Shift+n exec $notifications-client 
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -90,7 +96,7 @@ exec swayidle -w \
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes' 'swaymsg exit'
 
     bindsym $mod+p exec $lock
 #
@@ -252,6 +258,7 @@ input "type:keyboard" xkb_options caps:escape
 
 # Autostart some applications 
 exec nm-applet --indicator
+exec $notifications
 
 # Focus does NOT follow mouse 
 focus_follows_mouse no

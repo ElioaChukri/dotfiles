@@ -7,7 +7,7 @@
     "margin-top": 5,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "cpu", "memory"],
+    "modules-right": ["wireplumber", "network", "cpu", "memory"],
     "tray": {
         "spacing": 10,
     },
@@ -28,7 +28,7 @@
         "format-wifi": "  {essid}",
         "format-disconnected": "⚠ Disconnected"
     },
-    "pulseaudio": {
+    "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": "",
         "format-icons": {

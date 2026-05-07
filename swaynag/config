@@ -1,0 +1,11 @@
+[default]
+font=Monaspace Krypton
+edge=top
+background=171717ff
+border=2dd4bfff
+border-bottom-size=0
+button-background=737373ff
+button-padding=5
+button-border-size=2
+button-margin-right=20
+text=f5f5f5ff
