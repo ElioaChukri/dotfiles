@@ -32,8 +32,7 @@
   "widget-config": {
     "title": {
       "text": "Notification Center",
-      "clear-all-button": true,
-      "button-text": "󰆴 Clear All"
+      "clear-all-button": false
     },
     "mpris": {
       "blacklist": ["playerctl"],

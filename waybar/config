@@ -7,7 +7,7 @@
     "margin-top": 5,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["wireplumber", "network", "cpu", "memory"],
+    "modules-right": ["tray", "wireplumber", "network", "cpu", "memory", "custom/notification-center"],
     "tray": {
         "spacing": 10,
     },
@@ -15,17 +15,19 @@
         "format": "{:%a %Y %b %d %R}"
     },
     "cpu": {
-        "format": " {usage}%"
+        "format": " {usage}%",
+        "on-click": "alacritty -e btm"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%",
+        "on-click": "alacritty -e btm"
     },
     "temperature": {
         "critical-threshold": 75,
         "format": " {temperatureC}°C"
     },
     "network": {
-        "format-wifi": "  {essid}",
+        "format-wifi": " {essid}",
         "format-disconnected": "⚠ Disconnected"
     },
     "wireplumber": {
@@ -37,4 +39,8 @@
         },
         "on-click": "pavucontrol"
     },
+    "custom/notification-center": {
+        "format": "🎛",
+        "on-click": "swaync-client -t -sw"
+    }
 }

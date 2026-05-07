@@ -82,3 +82,7 @@ window#waybar {
 #network.disconnected {
   color: #b62d66;
 }
+
+#custom-notification-center {
+  padding: 4px 10px 0 0;
+}
