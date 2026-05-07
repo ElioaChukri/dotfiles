@@ -44,6 +44,8 @@ export XDG_SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
 # Colorize sudo password prompt 
 export SUDO_PROMPT="$(tput setaf 1 bold)Password:$(tput sgr0) "
 
+# Dark mode for QT apps
+export QT_STYLE_OVERRIDE=Adwaita-dark
 
 # History
 HISTSIZE=10000

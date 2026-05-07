@@ -23,6 +23,8 @@ set $lock playerctl pause || swaylock -C ~/.config/swaylock/config
 set $notifications swaync -c ~/.config/swaync/config -s ~/.config/swaync/style.css
 set $notifications-client swaync-client -t -sw
 
+set $gnome-schema org.gnome.desktop.interface
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -251,6 +253,11 @@ bar {
         background #323232
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
+}
+
+# Dark mode for GTK applications
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
 }
 
 # Swap caps and escape 
