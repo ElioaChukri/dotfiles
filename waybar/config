@@ -12,7 +12,8 @@
         "spacing": 10,
     },
     "clock": {
-        "format": "{:%a %Y %b %d %R}"
+        "format": "{:%a %b %d %r}",
+        "interval": 1
     },
     "cpu": {
         "format": " {usage}%",
