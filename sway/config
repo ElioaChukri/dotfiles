@@ -271,6 +271,9 @@ input "type:keyboard" xkb_options caps:escape
 exec nm-applet --indicator
 exec $notifications
 
+# Import environment variables for whatever additional systemctl --user services will be started
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 # Focus does NOT follow mouse 
 focus_follows_mouse no
 
