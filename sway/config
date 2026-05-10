@@ -19,6 +19,10 @@ set $term alacritty
 set $menu fuzzel
 # Set swaylock 
 set $lock "playerctl pause; swaylock -C ~/.config/swaylock/config"
+# Set nm-applet 
+set $network-manager nm-applet --indicator
+# Set clipboard history viewing
+set $clipboard-history-command "clipman pick -t CUSTOM --tool-args='fuzzel -d --width 200' --histpath='~/.cache/clipman.json'"
 
 set $notifications swaync -c ~/.config/swaync/config -s ~/.config/swaync/style.css
 set $notifications-client swaync-client -t -sw
@@ -103,7 +107,11 @@ exec swayidle -w \
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t default -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes' 'swaymsg exit'
 
+    # Lock the screen
     bindsym $mod+p exec $lock
+
+    # Open clipboard history (clipman doesn't support fuzzel directly so we set tool to CUSTOM)
+    bindsym $mod+x exec $clipboard-history-command
 #
 # Moving around:
 #
@@ -263,15 +271,18 @@ bar {
 }
 
 # Dark mode for GTK applications
-exec_always {
+exec {
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
 }
+
+# Set up clipman for clipboard management
+exec wl-paste -n -t text --watch clipman store --histpath="~/.cache/clipman.json" >> /tmp/clipman-log.txt 2>&1 &
 
 # Swap caps and escape 
 input "type:keyboard" xkb_options caps:escape
 
 # Autostart some applications 
-exec nm-applet --indicator
+exec $network-manager
 exec $notifications
 
 # Import environment variables for whatever additional systemctl --user services will be started
