@@ -7,3 +7,9 @@ size = 12
 
 [window]
 opacity = 0.9
+
+# Disable alacritty vim mode
+[[keyboard.bindings]]
+key = "Space"
+mods = "Control|Shift"
+action = "ReceiveChar"
