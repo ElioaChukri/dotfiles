@@ -18,7 +18,7 @@ set $term alacritty
 # Your preferred application launcher
 set $menu fuzzel
 # Set swaylock 
-set $lock playerctl pause || swaylock -C ~/.config/swaylock/config
+set $lock "playerctl pause; swaylock -C ~/.config/swaylock/config"
 
 set $notifications swaync -c ~/.config/swaync/config -s ~/.config/swaync/style.css
 set $notifications-client swaync-client -t -sw
