@@ -32,20 +32,11 @@ bindkey '^ ' autosuggest-accept
 
 # Set some environment variables
 export EDITOR=nvim
-export QT_QPA_PLATFORM=wayland
-export XDG_SESSION_TYPE=wayland
 export ZSH_AUTOSUGGEST_STRATEGY=(history)
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-# Save screenshots to ~/Pictures/Screenshots
-export XDG_PICTURES_DIR="$HOME/Pictures"
-export XDG_SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
-
 # Colorize sudo password prompt 
 export SUDO_PROMPT="$(tput setaf 1 bold)Password:$(tput sgr0) "
-
-# Dark mode for QT apps
-export QT_STYLE_OVERRIDE=Adwaita-dark
 
 # History
 HISTSIZE=10000

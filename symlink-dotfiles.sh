@@ -14,16 +14,17 @@ TPM_DEST="$HOME/.tmux/plugins/tpm"
 # For tmux we must specify the full path to avoid symlinking the entire tmux directory which contains plugins that shouldn't be in the repo
 # For sway, we have an output file specific for each device, so we only link the config file and not the entire sway directory
 declare -a LINKS=(
-    "alacritty              ~/.config/alacritty"
-    "fuzzel                 ~/.config/fuzzel"
-    "starship/starship.toml ~/.config/starship.toml"
-    "sway/config            ~/.config/sway/config"
-    "swaylock               ~/.config/swaylock"
-    "swaynag                ~/.config/swaynag"
-    "swaync                 ~/.config/swaync"
-    "tmux/tmux.conf         ~/.config/tmux/tmux.conf"
-    "waybar                 ~/.config/waybar"
-    "zsh/.zshrc             ~/.zshrc"
+    "alacritty                      ~/.config/alacritty"
+    "fuzzel                         ~/.config/fuzzel"
+    "environment/001_wayland.conf   ~/.config/environment.d/001_wayland.conf"
+    "starship/starship.toml         ~/.config/starship.toml"
+    "sway/config                    ~/.config/sway/config"
+    "swaylock                       ~/.config/swaylock"
+    "swaynag                        ~/.config/swaynag"
+    "swaync                         ~/.config/swaync"
+    "tmux/tmux.conf                 ~/.config/tmux/tmux.conf"
+    "waybar                         ~/.config/waybar"
+    "zsh/.zshrc                     ~/.zshrc"
 )
 
 log()    { printf '[%s] %s\n' "$(date +%H:%M:%S)" "$*"; }
