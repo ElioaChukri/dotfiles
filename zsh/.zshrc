@@ -95,7 +95,7 @@ alias orphans='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rs $(pacman -Qdtq) || ech
 
 uniqchars() {
   if [ -z "$1" ]; then
-    echo "Usage: uniq_chars <string>"
+    echo "Usage: uniqchars <string>"
     return 1
   fi
   echo "$1" | grep -o . | sort -u | wc -l
@@ -114,12 +114,28 @@ b64d() {
   echo -n "$1" | base64 -d; echo
 }
 
+# Function to set the kubeconfig env var 
+set-kube() {
+  if [ -z "$1" ]; then 
+    echo "Usage: set-kube <filename>"
+    return 1
+  fi
+  local filename="$1"
+  export KUBECONFIG=$(realpath $filename)
+}
+
 # Shell integrations
 eval "$(zoxide init --cmd cd --hook pwd zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 
 # Load completions
 autoload -Uz compinit
+
+# Enable editing command in VIM
+autoload -U edit-command-line
+zle -N edit-command-line
+# Bind to Ctrl-x Ctrl-e (only while in INSERT mode)
+bindkey '^x^e' edit-command-line
 
 if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
   compinit
