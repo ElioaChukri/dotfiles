@@ -128,6 +128,11 @@ set-kube() {
 eval "$(zoxide init --cmd cd --hook pwd zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 
+# Check kubectl presence before loading completions
+if command -v kubectl > /dev/null 2>&1;then 
+  eval "$(kubectl completion zsh)"
+fi
+
 # Load completions
 autoload -Uz compinit
 
