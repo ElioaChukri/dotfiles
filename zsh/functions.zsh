@@ -106,3 +106,14 @@ jwt-decode() {
   printf "\033[1;33m%s\033[0m\n" "$sep"
 }
 
+# Function to generate a random password of length N
+random-pass() {
+  if [[ -z "$1" ]]; then 
+    echo "Usage: random_pass <length>"
+    return 1
+  fi 
+
+  tr -dc A-Za-z0-9 </dev/urandom | head -c "$1"
+  echo
+}
+
