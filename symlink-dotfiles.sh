@@ -17,7 +17,6 @@ TPM_DEST="$HOME/.tmux/plugins/tpm"
 declare -a LINKS=(
     "alacritty                      ~/.config/alacritty"
     "fuzzel                         ~/.config/fuzzel"
-    "environment/001_wayland.conf   ~/.config/environment.d/001_wayland.conf"
     "starship/starship.toml         ~/.config/starship.toml"
     "sway/config                    ~/.config/sway/config"
     "swaylock                       ~/.config/swaylock"
