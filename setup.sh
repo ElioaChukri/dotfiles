@@ -6,9 +6,6 @@ DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DRY_RUN=false
 BACKUP=true
 BACKUP_DIR="${HOME}/.dotfiles-backup/$(date +%Y%m%d_%H%M%S)"
-TPM_URL="https://github.com/tmux-plugins/tpm"
-TPM_DEST="$HOME/.tmux/plugins/tpm"
-
 
 # Format: "source_path target_path"
 # For tmux we must specify the full path to avoid symlinking the entire tmux directory which contains plugins that shouldn't be in the repo
@@ -107,26 +104,56 @@ link_file() {
     ok "$target -> $src"
 }
 
+install_waybar_pomodoro_timer() {
+    log "Installing Waybar Pomodoro Timer"
+    local repo_url="https://github.com/Andeskjerf/waybar-module-pomodoro.git"
+    local tmp_dir
+    tmp_dir="$(mktemp -d)"
+    local bin_path="$HOME/.local/bin/waybar-module-pomodoro"
+
+    # First check if the binary already
+    if [[ -f "$bin_path" ]]; then
+        log "Waybar Pomodoro Timer already installed at $bin_path, skipping build"
+        return 0
+    fi
+    
+    if "$DRY_RUN"; then
+        dry "git clone $repo_url $tmp_dir"
+        dry "cd $tmp_dir && cargo build --release"
+        dry "cp $tmp_dir/target/release/waybar-module-pomodoro $bin_path"
+        return 0
+    fi
+
+    git clone "$repo_url" "$tmp_dir"
+    (cd "$tmp_dir" && cargo build --release)
+    cp "$tmp_dir/target/release/waybar-module-pomodoro" "$bin_path"
+}
+
 install_tpm() {
     log "Installing Tmux Plugin Manager"
+    local tpm_url="https://github.com/tmux-plugins/tpm"
+    local tpm_dest="$HOME/.tmux/plugins/tpm"
 
-    if [[ -d "$TPM_DEST" ]]; then
-        log "TPM already exists at $TPM_DEST, skipping clone"
+    if [[ -d "$tpm_dest" ]]; then
+        log "TPM already exists at $tpm_dest, skipping clone"
         return 0
     fi
 
     if "$DRY_RUN"; then 
-        dry "git clone $TPM_URL $TPM_DEST"
+        dry "git clone $tpm_url $tpm_dest"
         return 0
     fi
 
-    git clone "$TPM_URL" "$TPM_DEST"
+    git clone "$tpm_url" "$tpm_dest"
 }
 
 log "Dotfiles dir: $DOTFILES_DIR"
 "$DRY_RUN" && log "Dry run mode — no changes will be made"
 
+
+
 ensure_cmd git 
+ensure_cmd cargo
 
 failed=0
 for entry in "${LINKS[@]}"; do
@@ -140,5 +167,6 @@ if (( failed > 0 )); then
 fi
 
 install_tpm
+install_waybar_pomodoro_timer
 
 log "Done"

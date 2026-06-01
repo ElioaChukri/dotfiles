@@ -15,3 +15,8 @@ export XDG_SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
 # Dark mode for QT apps
 export QT_QPA_PLATFORM=wayland
 export QT_STYLE_OVERRIDE=Adwaita-dark
+
+# Add user-specific bin directories to PATH
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH

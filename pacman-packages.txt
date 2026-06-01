@@ -13,12 +13,14 @@ neovim
 network-manager-applet
 otf-monaspace
 otf-monaspace-nerd
+pipewire-audio
+rust
+starship
 sway
 sway-contrib
 swaybg
 swayidle
 swaync
-thunar
 tmux
 vim
 waybar
