@@ -117,3 +117,29 @@ random-pass() {
   echo
 }
 
+# URL encode and decode 
+urlencode() {
+  local input
+  if [[ $# -gt 0 ]]; then
+    input="$1"
+  elif [[ ! -t 0 ]]; then
+    input="$(cat)"
+  else
+    echo "Usage: urlencode <string> or pipe input" >&2
+    return 1
+  fi
+  python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]), end='')" "$input"
+}
+
+urldecode() {
+  local input
+  if [[ $# -gt 0 ]]; then
+    input="$1"
+  elif [[ ! -t 0 ]]; then
+    input="$(cat)"
+  else
+    echo "Usage: urldecode <string> or pipe input" >&2
+    return 1
+  fi
+  python3 -c "import urllib.parse, sys; print(urllib.parse.unquote(sys.argv[1]), end='')" "$input"
+}
