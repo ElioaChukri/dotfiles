@@ -1,2 +1,0 @@
-clipman
-swaylock-effects-git

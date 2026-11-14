@@ -11,16 +11,13 @@ BACKUP_DIR="${HOME}/.dotfiles-backup/$(date +%Y%m%d_%H%M%S)"
 # For tmux we must specify the full path to avoid symlinking the entire tmux directory which contains plugins that shouldn't be in the repo
 # For sway, we have an output file specific for each device, so we only link the config file and not the entire sway directory
 # For zsh, we must link the individual files to allow for machine-specific files alongside our files
+# For ghostty, we link only the config file because DMS writes its theme file into the same directory
 declare -a LINKS=(
-    "alacritty                      ~/.config/alacritty"
     "fuzzel                         ~/.config/fuzzel"
+    "ghostty/config.ghostty         ~/.config/ghostty/config.ghostty"
     "starship/starship.toml         ~/.config/starship.toml"
     "sway/config                    ~/.config/sway/config"
-    "swaylock                       ~/.config/swaylock"
-    "swaynag                        ~/.config/swaynag"
-    "swaync                         ~/.config/swaync"
     "tmux/tmux.conf                 ~/.config/tmux/tmux.conf"
-    "waybar                         ~/.config/waybar"
     "zsh/.zshenv                    ~/.zshenv"
     "zsh/.zshrc                     ~/.config/zsh/.zshrc"
     "zsh/aliases.zsh                ~/.config/zsh/aliases.zsh"
@@ -104,31 +101,6 @@ link_file() {
     ok "$target -> $src"
 }
 
-install_waybar_pomodoro_timer() {
-    log "Installing Waybar Pomodoro Timer"
-    local repo_url="https://github.com/Andeskjerf/waybar-module-pomodoro.git"
-    local tmp_dir
-    tmp_dir="$(mktemp -d)"
-    local bin_path="$HOME/.local/bin/waybar-module-pomodoro"
-
-    # First check if the binary already
-    if [[ -f "$bin_path" ]]; then
-        log "Waybar Pomodoro Timer already installed at $bin_path, skipping build"
-        return 0
-    fi
-    
-    if "$DRY_RUN"; then
-        dry "git clone $repo_url $tmp_dir"
-        dry "cd $tmp_dir && cargo build --release"
-        dry "cp $tmp_dir/target/release/waybar-module-pomodoro $bin_path"
-        return 0
-    fi
-
-    git clone "$repo_url" "$tmp_dir"
-    (cd "$tmp_dir" && cargo build --release)
-    cp "$tmp_dir/target/release/waybar-module-pomodoro" "$bin_path"
-}
-
 install_tpm() {
     log "Installing Tmux Plugin Manager"
     local tpm_url="https://github.com/tmux-plugins/tpm"
@@ -151,9 +123,7 @@ log "Dotfiles dir: $DOTFILES_DIR"
 "$DRY_RUN" && log "Dry run mode — no changes will be made"
 
 
-
 ensure_cmd git 
-ensure_cmd cargo
 
 failed=0
 for entry in "${LINKS[@]}"; do
@@ -167,6 +137,5 @@ if (( failed > 0 )); then
 fi
 
 install_tpm
-install_waybar_pomodoro_timer
 
 log "Done"
