@@ -1,22 +1,5 @@
-export ZDOTDIR="$HOME/.config/zsh"
-export XDG_SESSION_TYPE=wayland
-export XDG_CURRENT_DESKTOP=sway
+export ZDOTDIR=$HOME/.config/zsh/
 
-# Enable Wayland support in Firefox
-export MOZ_ENABLE_WAYLAND=1
+export PATH="$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.ghcup/bin:$PATH"
 
-# To fix Java GUI apps on Wayland
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# Save screenshots to ~/Pictures/Screenshots
-export XDG_PICTURES_DIR="$HOME/Pictures"
-export XDG_SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
-
-# Dark mode for QT apps
-export QT_QPA_PLATFORM=wayland
-export QT_STYLE_OVERRIDE=Adwaita-dark
-
-# Add user-specific bin directories to PATH
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
-export PATH=$HOME/.cargo/bin:$PATH
+export EDITOR=nvim

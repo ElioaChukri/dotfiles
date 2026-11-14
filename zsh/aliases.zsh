@@ -15,4 +15,4 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias show="feh"
 alias orphans='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rs $(pacman -Qdtq) || echo "no orphans to remove"'
-
+alias rgp='rg --vimgrep'
