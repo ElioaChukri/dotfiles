@@ -9,14 +9,13 @@ BACKUP_DIR="${HOME}/.dotfiles-backup/$(date +%Y%m%d_%H%M%S)"
 
 # Format: "source_path target_path"
 # For tmux we must specify the full path to avoid symlinking the entire tmux directory which contains plugins that shouldn't be in the repo
-# For sway, we have an output file specific for each device, so we only link the config file and not the entire sway directory
+# For niri, DMS and each device write their own files beside the config, so we only link the config file
 # For zsh, we must link the individual files to allow for machine-specific files alongside our files
 # For ghostty, we link only the config file because DMS writes its theme file into the same directory
 declare -a LINKS=(
-    "fuzzel                         ~/.config/fuzzel"
     "ghostty/config.ghostty         ~/.config/ghostty/config.ghostty"
+    "niri/config.kdl                ~/.config/niri/config.kdl"
     "starship/starship.toml         ~/.config/starship.toml"
-    "sway/config                    ~/.config/sway/config"
     "tmux/tmux.conf                 ~/.config/tmux/tmux.conf"
     "zsh/.zshenv                    ~/.zshenv"
     "zsh/.zshrc                     ~/.config/zsh/.zshrc"
