@@ -48,6 +48,7 @@ hotkey-overlay {
 }
 
 layout {
+    always-center-single-column
     gaps 8
     center-focused-column "never"
 
@@ -188,8 +189,9 @@ binds {
     Mod+Shift+E { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
 
     // screenshots
-    Mod+Shift+S { spawn "dms" "screenshot"; }
-    Print       { spawn "dms" "screenshot" "full"; }
+    Mod+Shift+S { screenshot; }
+    Print       { screenshot-screen; }
+    Alt+Print   { screenshot-window; }
 
     // media, volume, brightness
     XF86AudioPlay         allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "playPause"; }
@@ -203,8 +205,8 @@ binds {
 
     // windows
     Mod+Shift+Q     repeat=false { close-window; }
-    Mod+F           { fullscreen-window; }
-    Mod+M           { maximize-column; }
+    Mod+F           { maximize-column; }
+    Mod+Shift+F     { fullscreen-window; }
     Mod+Shift+Space { toggle-window-floating; }
     Mod+Ctrl+Space  { switch-focus-between-floating-and-tiling; }
 
@@ -250,11 +252,11 @@ binds {
     Mod+I       { focus-workspace-up; }
     Mod+Shift+U { move-column-to-workspace-down; }
     Mod+Shift+I { move-column-to-workspace-up; }
+    Mod+WheelScrollDown { focus-column-right; }
+    Mod+WheelScrollUp   { focus-column-left; }
     // The cooldown limits one turn of the wheel to one workspace.
-    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown { focus-column-right; }
-    Mod+Ctrl+WheelScrollUp   { focus-column-left; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
