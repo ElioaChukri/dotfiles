@@ -18,8 +18,6 @@ input {
     // A second press of the same workspace number goes back to the previous workspace.
     workspace-auto-back-and-forth
 
-    // The pointer follows the keyboard focus to another window or monitor.
-    warp-mouse-to-focus
     // The focus follows the pointer, but the view does not scroll for it.
     focus-follows-mouse max-scroll-amount="0%"
 }
