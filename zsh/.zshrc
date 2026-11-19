@@ -49,6 +49,7 @@ zinit snippet OMZP::colored-man-pages
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-syntax-highlighting
+zinit wait lucid for MichaelAquilina/zsh-autoswitch-virtualenv
 
 # =================================================================================
 #                                   Keybinds
